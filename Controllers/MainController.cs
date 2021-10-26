@@ -23,6 +23,8 @@ namespace AspImageConverter.Controllers
                 Image image = Image.FromStream(stream);
             }
 
+var stream = new MemoryStream();
+                image.Save(stream, format);
             return File(imageBytes, $"image/{output}");
         }
     }
