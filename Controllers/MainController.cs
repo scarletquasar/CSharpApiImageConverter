@@ -5,10 +5,9 @@ using AspImageConverter.Conversion;
 namespace AspImageConverter.Controllers
 {
     [ApiController]
-    [Route("/convert")]
     public class MainController : ControllerBase
     {
-
+        [Route("/convert")]
         [HttpGet]
         public async Task<FileContentResult> Get(string file = "R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==", string output = "jpg")
         {
