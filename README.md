@@ -15,7 +15,7 @@ To get started just clone the repository, use `dotnet run` and access the endpoi
 
 ### Manual Testing
 
-To test the API you might go to the endpoint `\test\` and paste the "ManualTests/ConversionTest.js" in the console, by the default code
+To test the API you might go to the endpoint `/test/` and paste the "ManualTests/ConversionTest.js" in the console, by the default code
 you will be redirected to a Lore Picsum image converted by the AspImageConverter.
 
 ### Unit Tests
