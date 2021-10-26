@@ -5,7 +5,7 @@ using AspImageConverter.Conversion;
 namespace AspImageConverter.Controllers
 {
     [ApiController]
-    [Route("/")]
+    [Route("/convert")]
     public class MainController : ControllerBase
     {
 
