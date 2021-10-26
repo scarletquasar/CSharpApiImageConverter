@@ -6,7 +6,9 @@ namespace AspImageConverter {
         static Dictionary<string, ImageFormat> MimeTypes = new Dictionary<string, ImageFormat>()
         {
             { "jpg", ImageFormat.Jpeg },
-            { "{appPath}", AppPath }
+            { "jpeg", ImageFormat.Jpeg },
+            { "bmp", ImageFormat.Bmp },
+            { "png", ImageFormat.Png }
         };
     }
 }
