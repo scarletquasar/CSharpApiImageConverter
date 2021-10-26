@@ -34,7 +34,7 @@ namespace AspImageConverter
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "asp_image_converter v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "AspImageConverter v1"));
             }
 
             app.UseHttpsRedirection();
