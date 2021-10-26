@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using System.Drawing;
-using System.Drawing.Imaging;
 using System.IO;
+using AspImageConverter.Conversion;
 
 namespace AspImageConverter.Controllers
 {
@@ -15,17 +14,10 @@ namespace AspImageConverter.Controllers
     {
 
         [HttpGet]
-        public FileContentResult Get(string file, string output = "jpg")
+        public async Task<FileContentResult> Get(string file = "R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==", string output = "jpg")
         {
-            Byte[] imageBytes = Convert.FromBase64String(file);
-            using(var stream = new MemoryStream(imageBytes, 0, imageBytes.Length))
-            {
-                Image image = Image.FromStream(stream);
-            }
-
-var stream = new MemoryStream();
-                image.Save(stream, format);
-            return File(imageBytes, $"image/{output}");
+            var fileStream = await ConversionCore.GetStream(file, output);
+            return File(fileStream.ToArray(), $"image/{output}");
         }
     }
 }

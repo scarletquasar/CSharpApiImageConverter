@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using System.Drawing.Imaging;
 
-namespace AspImageConverter {
+namespace AspImageConverter.Conversion {
     public static class ConversionDictionary {
-        static Dictionary<string, ImageFormat> MimeTypes = new Dictionary<string, ImageFormat>()
+        public static Dictionary<string, ImageFormat> MimeTypes = new()
         {
             { "jpg", ImageFormat.Jpeg },
             { "jpeg", ImageFormat.Jpeg },
