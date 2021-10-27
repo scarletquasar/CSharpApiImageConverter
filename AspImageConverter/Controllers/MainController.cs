@@ -14,11 +14,14 @@ namespace AspImageConverter.Controllers
         [Route("/convert")]
         [HttpGet]
         public async Task<IActionResult> Get(string file, string output) {
-            MemoryStream webResponse = await WebfetchImage.ByGetUrl(file);
-            
+            var webStream = await WebfetchImage.ByGetUrl(file);
+            var base64 = Convert.ToBase64String(webStream); 
+            var fileStream = await ImageConverter.GetStream(base64, output);
+
             //Return a new file using the URI and Type provided by the user
-            return File(webResponse.ToArray(), $"image/{output}");
+            return File(fileStream.ToArray(), $"image/{output}");
         }
+        
         [Route("/convert")]
         [HttpPost]
         public async Task<IActionResult> Get([FromBody] ImageRequest req)

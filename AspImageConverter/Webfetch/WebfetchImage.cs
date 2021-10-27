@@ -10,32 +10,24 @@ using System.Threading.Tasks;
 */
 namespace AspImageConverter.Webfetch {
     public static class WebfetchImage {
-        public static async Task<MemoryStream> ByGetUrl(string path) {
-            /* Declare the final result container as a MemoryStream */
-            MemoryStream result = new();
-
-            /* Create a new basic HttpWebRequest */
-            HttpWebRequest req = (HttpWebRequest)WebRequest.Create(path);
-
-            /* Start a try block to handle HttpWebRequest response errors */
-            try {
-                using (var res = await req.GetResponseAsync()){
-
-                    /* Create a new BinaryReader to get the response content */
-                    using (BinaryReader reader = new(res.GetResponseStream())) {
-                        Byte[] bytes = reader.ReadBytes(int.MaxValue);
-                        result = new MemoryStream(bytes, 0, bytes.Length);
+        public static async Task<Byte[]> ByGetUrl(string path) {
+            return await Task.Run(() => {
+                /* Declare the final result container as a MemoryStream */
+                Byte[] imageBytes = default;
+                /* Start a try block to handle WebClient response errors */
+                try {
+                    
+                    using (var webClient = new WebClient()) {
+                        imageBytes = webClient.DownloadData(path);
                     }
                 }
-            }
-            catch(Exception e) {
-                throw e;
-            }
-            /*
-                Note: You can add customization to the exception handler insted of
-                returning a void MemoryStream.
-            */
-            return result;
+                catch {}
+                /*
+                    Note: You can add customization to the exception handler insted of
+                    returning a void MemoryStream.
+                */
+                return imageBytes;
+            });
         }
     }
 }
