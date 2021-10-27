@@ -10,8 +10,15 @@ following types:
 - jpg
 - bmp
 
-To get started just clone the repository, use `dotnet run` and access the endpoint `/convert/` with a POST request providing the
-`file` and `output` arguments.
+**POST - From direct base 64**
+
+Use `dotnet run` and access the endpoint `/convert/` with a POST request providing the
+`file` and `output` arguments as Base64 and output type.
+
+**GET - From url**
+
+Use `dotnet run` and access the endpoint `/convert/` with a GET request providing the
+`file` and `output` arguments as URL path and output type.
 
 ### Manual Testing
 
