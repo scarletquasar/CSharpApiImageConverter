@@ -29,7 +29,7 @@ namespace AspImageConverter.Webfetch {
                 }
             }
             catch(Exception e) {
-                throw new Exception(e);
+                throw e;
             }
             /*
                 Note: You can add customization to the exception handler insted of
