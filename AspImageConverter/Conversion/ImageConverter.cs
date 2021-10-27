@@ -4,13 +4,12 @@ using System.IO;
 using System.Drawing;
 
 namespace AspImageConverter.Conversion {
-    public static class ConversionCore {
+    public static class ImageConverter {
         public static async Task<MemoryStream> GetStream(string file, string output) {
             return await Task.Run(() => {
+                /* Declare the final result container as a MemoryStream */
+                MemoryStream streamConverted = new();
                 try {
-                    /* Declare the final result container as a MemoryStream */
-                    MemoryStream streamConverted = new MemoryStream();
-
                     /* Convert the received Base64 to a byte array */
                     Byte[] imageBytes = Convert.FromBase64String(file);
 
@@ -30,18 +29,15 @@ namespace AspImageConverter.Conversion {
                         else {
                             image.Save(streamConverted, ConversionDictionary.MimeTypes["jpg"]);
                         }
-                        
                     }
                     return streamConverted;
                 }
-                catch {
-                    /*
-                        Note: You can add customization to the exception handler insted of
-                        returning a void MemoryStream, check the doc of "Exception" class to
-                        get more information
-                    */
-                    return new MemoryStream();
-                }
+                catch {}
+                /*
+                    Note: You can add customization to the exception handler insted of
+                    returning a void MemoryStream.
+                */
+                return streamConverted;
             });
         }
     }
