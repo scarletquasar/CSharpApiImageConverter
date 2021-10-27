@@ -23,7 +23,7 @@ toDataURL('https://picsum.photos/200/300', (img) => {
         },
         body: JSON.stringify(
             {
-                base64: img
+                file: img
                 .replaceAll("data:image/png;base64,", "")
                 .replaceAll("data:image/jpeg;base64,", "")
                 .replaceAll("data:image/jpg;base64,", ""),

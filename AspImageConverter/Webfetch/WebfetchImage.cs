@@ -28,7 +28,9 @@ namespace AspImageConverter.Webfetch {
                     }
                 }
             }
-            catch {}
+            catch(Exception e) {
+                throw new Exception(e);
+            }
             /*
                 Note: You can add customization to the exception handler insted of
                 returning a void MemoryStream.
