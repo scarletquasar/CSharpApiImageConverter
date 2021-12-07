@@ -29,7 +29,3 @@ you will be redirected to a Lore Picsum image converted by the AspImageConverter
 The project uses XUnit to setup unit tests, currently passing in the tests:
 
 - ImageConversionIntegrity
-
-### TODO
-
-- URL Conversion Unit tests and Manual tests
