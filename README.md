@@ -1,4 +1,4 @@
-# asp-image-converter
+# CSharpApiImageConverter
 Rest API example for real-time image conversion from "base64" codes.
 
 ## Usage
