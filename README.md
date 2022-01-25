@@ -28,4 +28,4 @@ you will be redirected to a Lore Picsum image converted by the AspImageConverter
 ### Unit Tests
 The project uses XUnit to setup unit tests, currently passing in the tests:
 
-- ImageConversionIntegrity
+- ImageConversionIntegrity (More info in the test)
