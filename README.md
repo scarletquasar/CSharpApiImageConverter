@@ -10,7 +10,7 @@ following types:
 - jpg
 - bmp
 
-**POST - From direct base 64**
+**POST - From direct base 64 code**
 
 Use `dotnet run` and access the endpoint `/convert/` with a POST request providing the
 `file` and `output` arguments as Base64 and output type.
